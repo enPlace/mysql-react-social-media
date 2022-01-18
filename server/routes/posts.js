@@ -1,21 +1,18 @@
 const express = require("express");
 const router = express.Router();
-const app = express();
-const bodyParser = require("body-parser");
 const posts = require("../models/index").posts;
 
-/* app.use(bodyParser.json()); // body en formato json
-app.use(bodyParser.urlencoded({ extended: false })); //body formulario */
-
-router.get("/", (req, res) => {
-  res.send("hello there you");
+router.get("/", async (req, res) => {
+  const allPosts = await posts.findAll();
+  console.log(allPosts);
+  res.send(allPosts);
 });
 
 router.post("/", async (req, res) => {
   console.log(req.body.title);
   await posts.create(req.body);
-  //res.json(post);
-  res.json("this worked");
+
+  res.json(req.body);
 });
 
 module.exports = router;
