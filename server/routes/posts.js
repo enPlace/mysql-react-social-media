@@ -3,7 +3,9 @@ const router = express.Router();
 const posts = require("../models/index").posts;
 
 router.get("/", async (req, res) => {
-  const allPosts = await posts.findAll();
+  const allPosts = await posts.findAll({
+    order: [["createdAt", "DESC"]],
+  });
   console.log(allPosts);
   res.send(allPosts);
 });
