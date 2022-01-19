@@ -6,8 +6,17 @@ router.get("/", async (req, res) => {
   const allPosts = await posts.findAll({
     order: [["createdAt", "DESC"]],
   });
-  console.log(allPosts);
   res.send(allPosts);
+});
+
+router.get("/byId/:id", async (req, res) => {
+  const requestId = req.params.id;
+  const post = await posts.findAll({
+    where: {
+      id: requestId,
+    },
+  });
+  res.send(post);
 });
 
 router.post("/", async (req, res) => {
