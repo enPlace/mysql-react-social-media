@@ -6,6 +6,7 @@ function App() {
   return (
     <div className="App">
       <Router>
+        <Link to="/">Home</Link>
         <Link to="/createpost">Create a New Post</Link>
         <Switch>
           <Route exact path="/">

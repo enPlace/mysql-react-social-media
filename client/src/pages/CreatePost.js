@@ -36,7 +36,7 @@ const CreatePost = () => {
         onSubmit={onSubmit}
         validationSchema={validationSchema}
       >
-        <Form>
+        <Form className="formContainer">
           <label htmlFor="title">Title</label>
           <ErrorMessage name="title" component="span" />
           <Field
