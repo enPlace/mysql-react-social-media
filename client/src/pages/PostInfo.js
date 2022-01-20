@@ -9,7 +9,6 @@ const PostInfo = () => {
   useEffect(() => {
     axios.get("http://localhost:3001/posts/byId/" + id).then((res) => {
       setPost(res.data[0]);
-      console.log(res.data[0]);
     });
   }, [id]);
   return (
